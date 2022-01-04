@@ -1,0 +1,37 @@
+spring:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+
+  flyway:
+    enabled: false # 启用或禁用 flyway
+
+
+starcoin:
+  get-last-proposal-list-url: https://poll-api.starcoin.org/v1/polls/page/main?page=1
+  vote-reward-name-prefix-format: "投票#%1$s奖励-"
+  vote-reward-name-en-prefix-format: "Award of Poll#%1$s-"
+
+
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          filter:
+            CommonsRequestLoggingFilter: DEBUG
+
+      # 输出数据库模型（开发阶段）
+      hibernate:
+        tool:
+          hbm2ddl: DEBUG
+
+      starcoin:
+        airdrop:
+          api: DEBUG
+          service: DEBUG
+          data: DEBUG
+
