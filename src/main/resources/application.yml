@@ -1,6 +1,8 @@
 server:
   port: 8787
   max-http-header-size: 102400
+  servlet:
+    context-path: "/${STARCOIN_NETWORK}"
 
 spring:
   datasource:
@@ -59,7 +61,7 @@ elasticsearch:
   transaction-event-index-prefix: ${STARCOIN_ES_TXN_EVENT_IDX_PREFIX}
 
 
-airdrop:
+polybridge:
   vote-reward-process-task-service:
     fixed-delay: 10000
 
@@ -69,10 +71,10 @@ starcoin:
   network: ${STARCOIN_NETWORK}
   json-rpc-url: ${STARCOIN_JSON_RPC_URL}
   chain-id: ${STARCOIN_CHAIN_ID}
-  airdrop:
+  poly-bridge:
     token-type: "0x00000000000000000000000000000001::STC::STC"
     function-address: "0xb987F1aB0D7879b2aB421b98f96eFb44"
-    owner-private-key: ${STARCOIN_AIRDROP_OWNER_PK}
+    owner-private-key: ${STARCOIN_POLY_BRIDGE_OWNER_PK}
   get-last-proposal-list-url: https://poll-api.starcoin.org/v1/polls/page/main?page=1
   vote-reward-name-prefix-format: "投票#%1$s奖励-"
   vote-reward-name-en-prefix-format: "Award of Poll#%1$s-"
@@ -86,13 +88,13 @@ ok:
     keep-alive-duration: 600
 
 
-springfox:
-  documentation:
-    swaggerUi:
-      baseUrl: /airdrop-api-doc
-    openApi:
-      v3:
-        path: /airdrop-api-doc/v3/api-docs
-    swagger:
-      v2:
-        path: /airdrop-api-doc/v2/api-docs
+#springfox:
+#  documentation:
+#    swaggerUi:
+#      baseUrl: /stc-poly-bridge-api-doc
+#    openApi:
+#      v3:
+#        path: /stc-poly-bridge-api-doc/v3/api-docs
+#    swagger:
+#      v2:
+#        path: /stc-poly-bridge-api-doc/v2/api-docs

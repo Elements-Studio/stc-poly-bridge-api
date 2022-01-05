@@ -1,31 +1,23 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: "poll-and-airdrop-api-ingress"
+  name: "stc-poly-bridge-api-ingress"
 #  namespace: "default"
   annotations:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
   labels:
-    app: poll-and-airdrop-api
+    app: stc-poly-bridge-api
 spec:
   rules:
     - http:
         paths:
-          - path: /v1/polls/*
+          - path: /main/*
             backend:
-              serviceName: "poll-api"
+              serviceName: "stc-poly-bridge-api"
               servicePort: 80
-          - path: /poll-api-doc/*
+          - path: /barnard/*
             backend:
-              serviceName: "poll-api"
-              servicePort: 80
-          - path: /v1/poly-bridge/*
-            backend:
-              serviceName: "airdrop-java"
-              servicePort: 80
-          - path: /airdrop-api-doc/*
-            backend:
-              serviceName: "airdrop-java"
+              serviceName: "stc-poly-bridge-api-barnard"
               servicePort: 80

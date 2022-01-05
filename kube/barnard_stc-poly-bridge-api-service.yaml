@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: airdrop-java-barnard
-  name: airdrop-java-barnard
+    app: stc-poly-bridge-api-barnard
+  name: stc-poly-bridge-api-barnard
 spec:
   ports:
   - port: 80
@@ -11,7 +11,7 @@ spec:
     protocol: TCP
     targetPort: 8787
   selector:
-    app: airdrop-java-barnard
+    app: stc-poly-bridge-api-barnard
   type: LoadBalancer
 status:
   loadBalancer: {}

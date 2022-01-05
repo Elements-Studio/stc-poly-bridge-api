@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: airdrop-java
-  name: airdrop-java
+    app: stc-poly-bridge-api
+  name: stc-poly-bridge-api
 spec:
   ports:
   - port: 80
@@ -11,5 +11,5 @@ spec:
     protocol: TCP
     targetPort: 8787
   selector:
-    app: airdrop-java
+    app: stc-poly-bridge-api
   type: ClusterIP

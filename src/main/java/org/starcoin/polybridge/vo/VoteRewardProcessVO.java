@@ -1,30 +1,14 @@
 package org.starcoin.polybridge.vo;
 
-import org.starcoin.polybridge.data.model.VoteRewardProcess;
 
 import java.time.ZonedDateTime;
 
-public class VoteRewardProcessVO extends VoteRewardProcess {
+public class VoteRewardProcessVO {
 
     private ZonedDateTime voteStartDateTime;
 
     private ZonedDateTime voteEndDateTime;
 
-    @Override
-    public Long getVoteStartTimestamp() {
-        if (super.getVoteStartTimestamp() == null && voteStartDateTime != null) {
-            return voteStartDateTime.toInstant().toEpochMilli();
-        }
-        return super.getVoteStartTimestamp();
-    }
-
-    @Override
-    public Long getVoteEndTimestamp() {
-        if (super.getVoteEndTimestamp() == null && voteEndDateTime != null) {
-            return voteEndDateTime.toInstant().toEpochMilli();
-        }
-        return super.getVoteEndTimestamp();
-    }
 
     public ZonedDateTime getVoteStartDateTime() {
         return voteStartDateTime;

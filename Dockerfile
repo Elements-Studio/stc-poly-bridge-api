@@ -30,7 +30,7 @@ RUN addgroup -S starcoin && adduser -S starcoin -G starcoin
 VOLUME /tmp
 USER starcoin
 ARG DEPENDENCY=/workspace/app/target
-COPY --from=build ${DEPENDENCY}/airdrop-0.0.1-SNAPSHOT.jar /app/lib/app.jar
+COPY --from=build ${DEPENDENCY}/stc-poly-bridge-0.0.1-SNAPSHOT.jar /app/lib/app.jar
 ENTRYPOINT ["java","-noverify","-XX:TieredStopAtLevel=1","-jar","app/lib/app.jar","-Dspring.main.lazy-initialization=true"]
 # ,"STARCOIN_MYSQL_URL=$STARCOIN_MYSQL_URL","STARCOIN_MYSQL_USER=$STARCOIN_MYSQL_USER","STARCOIN_MYSQL_PWD=$STARCOIN_MYSQL_PWD"
 

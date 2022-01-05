@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: airdrop-java-deployment-barnard
+  name: stc-poly-bridge-api-deployment-barnard
   labels:
-    app: airdrop-java-barnard
+    app: stc-poly-bridge-api-barnard
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: airdrop-java-barnard
+      app: stc-poly-bridge-api-barnard
   template:
     metadata:
       labels:
-        app: airdrop-java-barnard
+        app: stc-poly-bridge-api-barnard
     spec:
       containers:
-      - name: airdrop-java-barnard
-        image: ghcr.io/starcoinorg/starcoin_airdrop_java:sha-14b6904
+      - name: stc-poly-bridge-api-barnard
+        image: ghcr.io/starcoinorg/starcoin_poly_bridge_api:sha-14b6904
         ports:
         - containerPort: 8787
         env:
@@ -30,7 +30,7 @@ spec:
               name: http-basic-auth
               key: auth
         - name: STARCOIN_MYSQL_URL
-          value: "jdbc:mysql://starcoin-db-2.c0bz9kehdvnb.ap-northeast-1.rds.amazonaws.com:3306/airdrop_barnard?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC"
+          value: "jdbc:mysql://starcoin-db-2.c0bz9kehdvnb.ap-northeast-1.rds.amazonaws.com:3306/stc_poly_bridge_barnard?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC"
         - name: STARCOIN_MYSQL_USER
           value: "starcoin"
         - name: STARCOIN_MYSQL_PWD
@@ -59,9 +59,5 @@ spec:
             secretKeyRef:
               name: elasticsearch-pw-elastic
               key: password
-        - name: STARCOIN_AIRDROP_OWNER_PK
-          valueFrom:
-            secretKeyRef:
-              name: barnard-starcoin-airdrop-secret
-              key: ownerpk
+
 

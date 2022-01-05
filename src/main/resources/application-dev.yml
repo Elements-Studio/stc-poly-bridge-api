@@ -30,7 +30,7 @@ logging:
           hbm2ddl: DEBUG
 
       starcoin:
-        airdrop:
+        polybridge:
           api: DEBUG
           service: DEBUG
           data: DEBUG
